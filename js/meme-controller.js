@@ -28,7 +28,6 @@ function renderCanvas() {
     var meme = gMeme;
     var selectedImgId = meme.selectedImgId;
     var memeImg = new Image();
-
     memeImg.src = gImgs[selectedImgId - 1].url;
 
     memeImg.onload = function () {
@@ -74,6 +73,7 @@ function drawLineTxt(line) {
 }
 
 function onFocusLine() {
+    if (!gMeme.lines.length) return;
     if (!gMeme.selectedLineIdx && gMeme.lines.length === 1) {
         renderCanvas();
         setTimeout(() => {
@@ -82,7 +82,7 @@ function onFocusLine() {
             }
         })
         gElLineInput.value = '';
-        gMeme.selectedLineIdx=-1;
+        gMeme.selectedLineIdx = -1;
         return;
     }
     console.log(gMeme.selectedLineIdx);
@@ -167,7 +167,7 @@ function reRenderFocusedLineRect(idx) {
 
 function onDeleteLine() {
     renderCanvas();
-    gMeme.lines.splice(gMeme.selectedLineIdx , 1);
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
     setTimeout(() => {
         for (var i = 0; i < gMeme.lines.length; i++) {
             drawLineTxt(gMeme.lines[i]);
@@ -232,3 +232,39 @@ function onChangeFontSize(x) {
 
 
 }
+
+function downloadMeme(elMeme) {
+    console.log('download');
+    var image = gElCanvas.toDataURL("image/jpg");
+    elMeme.href = image;
+}
+
+
+// var imageInput = document.querySelector('#image_input');
+// var uploadImage = '';
+
+// imageInput.addEventListener("change", function () {
+//     var reader = new FileReader();
+//     reader.addEventListener("load", () => {
+//         uploadImage = reader.result;
+//         reader.readAsDataURL(this.files[0]);
+//         // console.log(uploadImage.url);
+//     })
+
+    // reader.addEventListener('load', () => {
+    //    
+    // })
+
+    // reader.readAsDataURL(this.files[0]);
+    // gImgs.push({
+    //     id: gImgs.length + 1,
+    //     url: el.value,
+    //     keywords: ['.']
+    // })
+    // onImgClicked(gImgs[gImgs.length - 1].id)
+    // var url = reader.readAsDataURL(this.files[0]);
+    // console.log(reader.readAsDataURL(this.files[0]));
+// })
+
+
+

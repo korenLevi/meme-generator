@@ -10,8 +10,9 @@ html {
 
 body {
     margin: 0;
-    height: 100vh;
-    width: 100%;
+    /* height: 100vh; */
+    /* height: 100%; */
+    /* width: 100%; */
     background-color: #e3e3e3;
 }
 
@@ -36,8 +37,8 @@ body {
 
 .logo {
     display: flex;
-    height: 60%;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     /* float: right; */
     justify-content: center;
     margin-left: 5%;
@@ -86,28 +87,36 @@ body {
     position: relative;
     display: none;
     /* display: flex; */
+    /* display:block; */
     background-color: cornsilk;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 15px;
     padding-bottom: 20px;
     padding-top: 20px;
     margin: 0 auto;
     /* margin-bottom: auto; */
-    /* height: 60%; */
+    height: 60%;
     width: 70%;
+    /* flex-direction: column; */
 }
 
 .canvas-container {
     display: grid;
     height: 100%;
-    grid-template-columns: 40% 20% 40%;
+    grid-template-columns: 45% 10% 45%;
     grid-template-rows: auto;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .grid2 {
     grid-row: 1/2;
     grid-column: 3/-1;
+    /* display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto; */
+    /* display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 10% 25% auto 25% 10%; */
 }
 
 #meme-canvas {
@@ -124,20 +133,29 @@ body {
 
 .control-box {
     position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 7.5% 35% 35% 15% 7.5%;
     border: 2px solid black;
-    display: flex;
-    flex-direction: row;
-    gap: 35px;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* gap: 35px; */
     height: 100%;
     /* padding-right: 115px; */
 }
 
 .lines-edit {
-    gap: 10px;
+    /* gap: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 25%;
+    margin-top: 30px;
+    margin-bottom: auto; */
+    grid-row: 3/4;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .text-edit-btns {
@@ -155,11 +173,12 @@ body {
 }
 
 .control-box button {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 35px;
     border: 0px solid rgb(131, 131, 131);
     background-color: #ffffff;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /* img {
@@ -173,35 +192,87 @@ body {
 }
 
 .lines-btns {
-    display: flex;
-    gap: 15px;
-    /* margin-top: 150px; */
     justify-content: center;
-    flex-wrap: wrap;
-    /* height: 450px; */
+    /* display: flex; */
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: 35% 35% 30%;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-items: center;
+    align-items: center;
 }
 
-button {
+/* button {
     height: 25px;
-}
+} */
 
 .img-btn {
     height: 30px;
     width: 30px;
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
 }
 
 input[name="textLine"] {
     /* margin-top: 0.625rem; */
     height: 2.5em;
-    width: 100%;
+    width: 90%;
     border-radius: 5px;
-
+    /* display: flex; */
+    justify-content: center;
+    grid-row: 1/2;
+    grid-column: 1/4;
 }
 
 .pos-btn {
-    font-size: 30px;
+    /* font-size: 30px; */
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
 }
 
+.socials-btns {
+    grid-row: 4/5;
+}
+
+.addText {
+    grid-row: 1/2;
+    grid-column: 4/-1;
+}
+.switch{
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+.trash{
+    grid-row: 2/3;
+    grid-column: 3/4;
+}
+.right{
+    grid-row: 3/-1;
+    grid-column: 1/2;
+}
+.left{
+    grid-row: 3/-1;
+    grid-column: 2/3;
+}
+.up{
+    grid-row: 3/-1;
+    grid-column: 3/4;
+}
+.down{
+    grid-row: 3/-1;
+    grid-column: 4/5;
+}
+
+.socials-btns >* {
+    background-color: #e97e14;
+}
+.downloadBtn {
+    grid-row: 4/-1;
+    display: flex;
+    background-color: #e97e14;
+}
 /* small screen */
 
 @media screen and (max-width: 1000px) {
@@ -269,7 +340,6 @@ input[name="textLine"] {
         justify-content: stretch;
         padding: 20px 0 10px 0;
     }
-
     .meme-edit {
         position: relative;
         /* display: none; */
@@ -290,14 +360,12 @@ input[name="textLine"] {
         grid-template-rows: 45% 10% 45%;
         margin: 0 auto;
     }
-
     .grid2 {
         grid-row: 3/-1;
         grid-column: 1/-1;
         margin: 0 auto;
         width: 90%;
     }
-    
     #meme-canvas {
         /* display: flex; */
         position: relative;
@@ -328,17 +396,21 @@ input[name="textLine"] {
         /* margin-left: 5%; */
         /* align-items: center; */
     }
-    
     .control-box button {
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
+        
         border: 0px solid rgb(131, 131, 131);
         background-color: #ffffff;
         border-radius: 5px;
-        text-align: center;
+        /* text-align: center;
         justify-content: center;
         align-self: center;
-        align-content: center;
+        align-content: center; */
+    }
+    .control-box {
+        grid-template-columns: auto;
+        grid-template-rows: 2.5% 52.5% 25% 20%;
     }
     .pos-btn {
         font-size: 20px;
@@ -348,7 +420,7 @@ input[name="textLine"] {
         align-content: center;
     }
     .img-btn {
-        height: 25px;
-        width: 25px;
+        height: 20px;
+        width: 20px;
     }
 }

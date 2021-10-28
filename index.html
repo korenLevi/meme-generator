@@ -23,46 +23,60 @@
             </canvas>
             <div class="grid2">
 
-
-                <div class="control-box flex column">
+                <!-- flex column -->
+                <div class="control-box">
                     <!-- <div class="text-input"> -->
-                    <div class="lines-edit flex column">
-                        <div class="lines-btns">
-                            <input class="text-input" name="textLine" type="text" placeholder="text to add"
-                                autocomplete="off" oninput="renderLineLiveText(this)">
-                            <button onclick="onFocusLine()">
-                                <img class="img-btn" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
-                            </button>
-                            <button class="pos-btn" onclick="moveTextRightLeft(5)" id="line-right">👉</button>
-                            <button class="pos-btn" onclick="moveTextRightLeft(-5)" class="line-left">👈</button>
-                            <button class="pos-btn" onclick="moveTextUpDown(-5)" class="line-up">👆</button>
-                            <button class="pos-btn" onclick="moveTextUpDown(5)" class="line-down">👇</button>
-                            <button onclick="onAddText()">
-                                <img class="img-btn" src="ICONS/add.png">
-                            </button>
-                            <button class="img-btn" onclick="onDeleteLine()">
-                                <img class="img-btn" src="ICONS/trash.png">
-                            </button>
-                            <div class="upper-btns flex ">
-                                <button onclick="onChangeFontSize(1)" class="font-increase">
-                                    <img class="img-btn" src="ICONS/increase font - icon.png"></button>
-                                <span class="font-size flex"></span>
-                                <button onclick="onChangeFontSize(-1)" class="font-decrease">
-                                    <img class="img-btn" src="ICONS/decrease font - icon.png">
-                                </button>
-                                <button onclick="onAlignLeft()">
-                                    <img class="img-btn" src="ICONS/align-to-left.png">
-                                </button>
-                                <button onclick="onAlignCenter()">
-                                    <img class="img-btn" src="ICONS/center-text-alignment.png">
-                                </button>
-                                <button onclick="onAlignRight()">
-                                    <img class="img-btn" src="ICONS/align-to-right.png">
-                                </button>
-                            </div>
-                        </div>
 
+                    <div class="lines-btns">
+                        <input class="text-input" name="textLine" type="text" placeholder="text to add"
+                            autocomplete="off" oninput="renderLineLiveText(this)">
+                        <button class="switch" onclick="onFocusLine()">
+                            <img class="img-btn" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
+                        </button>
+                        <button class="pos-btn right" onclick="moveTextRightLeft(5)" id="line-right">👉</button>
+                        <button class="pos-btn left" onclick="moveTextRightLeft(-5)" class="line-left">👈</button>
+                        <button class="pos-btn up" onclick="moveTextUpDown(-5)" class="line-up">👆</button>
+                        <button class="pos-btn down" onclick="moveTextUpDown(5)" class="line-down">👇</button>
+                        <button class="addText" onclick="onAddText()">
+                            <img class="img-btn" src="ICONS/add.png">
+                        </button>
+                        <button class="img-btn trash" onclick="onDeleteLine()">
+                            <img class="img-btn" src="ICONS/trash.png">
+                        </button>
                     </div>
+
+
+
+                    <div class="lines-edit">
+                        <button onclick="onChangeFontSize(1)" class="font-increase">
+                            <img class="img-btn" src="ICONS/increase font - icon.png"></button>
+                        <span class="font-size flex"></span>
+                        <button onclick="onChangeFontSize(-1)" class="font-decrease">
+                            <img class="img-btn" src="ICONS/decrease font - icon.png">
+                        </button>
+                        <!-- <button onclick="onAlignLeft()">
+                                <img class="img-btn" src="ICONS/align-to-left.png">
+                            </button>
+                            <button onclick="onAlignCenter()">
+                                <img class="img-btn" src="ICONS/center-text-alignment.png">
+                            </button>
+                            <button onclick="onAlignRight()">
+                                <img class="img-btn" src="ICONS/align-to-right.png">
+                            </button> -->
+                    </div>
+
+
+
+                    <div class="socials-btns">
+                        <a id="download" class="pos-btn downloadBtn" download="myMeme.jpg" href=""onclick="downloadMeme(this)">Download</a>
+                        <!-- <input type="file" class="image_input" accept="image/png, image/jpg"> -->
+                    </div>
+
+                    <!-- oninput="memeImgLoad(this)"  -->
+                    <!-- <div class="lines-edit">
+                        
+
+                    </div> -->
 
                 </div>
             </div>
@@ -93,6 +107,12 @@
 
     <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
+    <!-- <script>
+        document.querySelector(".image_input").addEventListener('chagne' , function() {
+            console.log(this.file)
+
+        })
+    </script> -->
 </body>
 
 </html>
