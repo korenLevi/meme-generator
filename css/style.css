@@ -84,7 +84,7 @@ body {
 
 .meme-edit {
     position: relative;
-    /* display: none; */
+    display: none;
     /* display: flex; */
     background-color: cornsilk;
     justify-content: space-between;
@@ -126,7 +126,7 @@ body {
     position: relative;
     border: 2px solid black;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 35px;
     height: 100%;
     /* padding-right: 115px; */
@@ -195,7 +195,7 @@ input[name="textLine"] {
     height: 2.5em;
     width: 100%;
     border-radius: 5px;
-    
+
 }
 
 .pos-btn {

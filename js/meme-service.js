@@ -131,7 +131,7 @@ var gLinesPos = [{
 var gMeme = {
     selectedImgId: -1,
     // selectedLineIdx: 0,
-    selectedLineIdx: 0,
+    selectedLineIdx: -1,
     linePosIdx: 0,
     lines: [],
     fontSize: 40,
@@ -179,7 +179,7 @@ function getSelectedLine() {
     return gMeme.lines[gMeme.selectedLineIdx];
 }
 
-function createLine(text, align = "left", fillColor = "white", strokeColor = "black") {
+function createLine(text, align = "right", fillColor = "white", strokeColor = "black") {
     var linePosIdx = gMeme.linePosIdx;
     console.log('gMeme.linePosIdx', gMeme.linePosIdx);
     // var linePosIdx = gMeme.lines.length;
@@ -205,7 +205,7 @@ function setLineIdx() {
     if(!gMeme.lines[gMeme.selectedLineIdx]) gMeme.selectedLineIdx = 0;
     
     if(gLinesPos.length - 1 === gMeme.selectedLineIdx) {
-        gMeme.selectedLineIdx = 0;
+        gMeme.selectedLineIdx = -1;
     }
 }
 
@@ -241,7 +241,7 @@ function setMemesArr(imgId) {
 }
 
 function setNewPosLineX(val) {
-    var currLineIdx = --gMeme.selectedLineIdx ;
+    var currLineIdx = gMeme.selectedLineIdx ;
     console.log('currLineIdx',currLineIdx);
 
     console.log('gMeme.lines[currLineIdx].pos.x',gMeme.lines[currLineIdx].pos.x);
@@ -249,7 +249,7 @@ function setNewPosLineX(val) {
     console.log('gMeme.lines[currLineIdx].pos.x',gMeme.lines[currLineIdx].pos.x);
 }
 function setNewPosLineY(val) {
-    var currLineIdx = --gMeme.selectedLineIdx;
+    var currLineIdx = gMeme.selectedLineIdx;
     gMeme.lines[currLineIdx].pos.y += val;
 }
 

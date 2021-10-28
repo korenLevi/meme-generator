@@ -74,6 +74,19 @@ function drawLineTxt(line) {
 }
 
 function onFocusLine() {
+    if (!gMeme.selectedLineIdx && gMeme.lines.length === 1) {
+        renderCanvas();
+        setTimeout(() => {
+            for (var i = 0; i < gMeme.lines.length; i++) {
+                drawLineTxt(gMeme.lines[i]);
+            }
+        })
+        gElLineInput.value = '';
+        gMeme.selectedLineIdx=-1;
+        return;
+    }
+    console.log(gMeme.selectedLineIdx);
+    gMeme.selectedLineIdx++;
     setLineIdx();
     gMeme.isFocusedLineOn = true;
     gMeme.isFocusedLineOn = true;
@@ -87,7 +100,7 @@ function onFocusLine() {
     setTimeout(renderFocusedLineRect, 50)
     gElLineInput.value = getSelectedLine().txt;
     console.log(gElLineInput.value);
-
+    // gMeme.selectedLineIdx++;
 
 }
 
@@ -100,45 +113,52 @@ function onAddText() {
     gElLineInput.value = '';
 
     gMeme.isFocusedLineOn = false;
-    gMeme.selectedLineIdx = 0;
+    gMeme.selectedLineIdx = -1;
 
 
 }
 
 function renderFocusedLineRect() {
-    console.log(gMeme.selectedLineIdx);
+    // console.log(gMeme.selectedLineIdx);
+    var idx = gMeme.selectedLineIdx;
     if (!gMeme.lines.length) {
         console.log('return');
         return
     }
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx);
     var line = getSelectedLine();
-    console.log(line);
     var pos = {
         ...line.pos
     };
-    console.log(pos);
+    // console.log('line', line);
+    // gCtx.measureText(line.txt).
+    console.log(line.txt);
     var textWidth = gCtx.measureText(line.txt).width;
     console.log(gCtx.measureText(line.txt));
     gCtx.beginPath();
-    gCtx.rect(pos.x - 5, pos.y - gMeme.fontSize, textWidth + 10, gMeme.fontSize + 10);
+    // gCtx.rect(pos.x - 5, pos.y - gMeme.fontSize, textWidth + 10, gMeme.fontSize + 10);
+    gCtx.rect(pos.x - 5, pos.y - gMeme.lines[idx].size, textWidth + 10, gMeme.lines[idx].size + 10);
+    console.log('idx : ', idx, pos.x - 5, pos.y - gMeme.lines[idx].size, textWidth + 10, gMeme.lines[idx].size + 10);
+    // gCtx.rect(pos.x - 5, pos.y - gMeme.lines[gMeme.selectedLineIdx].size,
+    //  textWidth + 10, gMeme.lines[gMeme.selectedLineIdx].size + 10);
+    // gMeme.lines[currLineIdx].size
     gCtx.strokeStyle = 'black';
     gCtx.stroke();
     console.log(gMeme.selectedLineIdx);
-    gMeme.selectedLineIdx++;
+    // gMeme.selectedLineIdx++;
 }
 
 function reRenderFocusedLineRect(idx) {
 
-    console.log('idx', idx);
+    // console.log('idx', idx);
     var line = gMeme.lines[idx];
     var pos = {
         ...line.pos
     };
 
-
+    var textWidth = gCtx.measureText(line.txt).width;
     gCtx.beginPath();
-    gCtx.rect(pos.x - 5, pos.y - gMeme.fontSize, textWidth + 10, gMeme.fontSize + 10);
+    gCtx.rect(pos.x - 5, pos.y - gMeme.lines[idx].size, textWidth + 10, gMeme.lines[idx].size + 10);
+    // console.log(pos.x - 5 +1, pos.y - gMeme.lines[idx].size, textWidth + 10, gMeme.lines[idx].size + 10);
     gCtx.strokeStyle = 'black';
     gCtx.stroke();
 
@@ -147,7 +167,7 @@ function reRenderFocusedLineRect(idx) {
 
 function onDeleteLine() {
     renderCanvas();
-    gMeme.lines.splice(gMeme.selectedLineIdx - 1, 1);
+    gMeme.lines.splice(gMeme.selectedLineIdx , 1);
     setTimeout(() => {
         for (var i = 0; i < gMeme.lines.length; i++) {
             drawLineTxt(gMeme.lines[i]);
@@ -165,16 +185,17 @@ function moveLineTxt() {
 }
 
 function moveTextRightLeft(val) {
+    if (!gMeme.isFocusedLineOn) return;
     setNewPosLineX(val);
     renderCanvas();
 
     setTimeout(() => {
         for (let i = 0; i < gMeme.lines.length; i++) {
             drawLineTxt(gMeme.lines[i]);
-            renderFocusedLineRect();
+            // renderFocusedLineRect();
         }
     })
-
+    setTimeout(renderFocusedLineRect, 50)
 
 }
 
@@ -185,8 +206,29 @@ function moveTextUpDown(val) {
 
     setTimeout(() => {
         for (var i = 0; i < gMeme.lines.length; i++) {
+
             drawLineTxt(gMeme.lines[i]);
             renderFocusedLineRect();
         }
     })
+}
+
+function onChangeFontSize(x) {
+
+    var currLineIdx = gMeme.selectedLineIdx;
+
+    gMeme.lines[currLineIdx].size += x;
+    renderCanvas();
+    setTimeout(() => {
+        for (var i = 0; i < gMeme.lines.length; i++) {
+            drawLineTxt(gMeme.lines[i]);
+
+        }
+    })
+    // reRenderFocusedLineRect(currLineIdx)
+    setTimeout(renderFocusedLineRect, 50)
+    // gElLineInput.value = getSelectedLine().txt;
+    // console.log(gElLineInput.value);
+
+
 }

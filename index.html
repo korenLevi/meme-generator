@@ -27,9 +27,9 @@
                 <div class="control-box flex column">
                     <!-- <div class="text-input"> -->
                     <div class="lines-edit flex column">
-                        <input class="text-input" name="textLine" type="text" placeholder="text to add" autocomplete="off"
-                            oninput="renderLineLiveText(this)">
                         <div class="lines-btns">
+                            <input class="text-input" name="textLine" type="text" placeholder="text to add"
+                                autocomplete="off" oninput="renderLineLiveText(this)">
                             <button onclick="onFocusLine()">
                                 <img class="img-btn" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
                             </button>
@@ -43,7 +43,25 @@
                             <button class="img-btn" onclick="onDeleteLine()">
                                 <img class="img-btn" src="ICONS/trash.png">
                             </button>
+                            <div class="upper-btns flex ">
+                                <button onclick="onChangeFontSize(1)" class="font-increase">
+                                    <img class="img-btn" src="ICONS/increase font - icon.png"></button>
+                                <span class="font-size flex"></span>
+                                <button onclick="onChangeFontSize(-1)" class="font-decrease">
+                                    <img class="img-btn" src="ICONS/decrease font - icon.png">
+                                </button>
+                                <button onclick="onAlignLeft()">
+                                    <img class="img-btn" src="ICONS/align-to-left.png">
+                                </button>
+                                <button onclick="onAlignCenter()">
+                                    <img class="img-btn" src="ICONS/center-text-alignment.png">
+                                </button>
+                                <button onclick="onAlignRight()">
+                                    <img class="img-btn" src="ICONS/align-to-right.png">
+                                </button>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
