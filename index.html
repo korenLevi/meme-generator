@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body onload="init()">
+    <header class="header-container">
+        <div class="main-header">
+            <div class="logo">
+                <img src="img/logos/LOGO.png" class="meme-logo">
+            </div>
+        </div>
+    </header>
+    <div class="meme-edit">
+        <div class="canvas-container grid-canvas">
+            <canvas id="meme-canvas">
+            </canvas>
+            <div class="grid2">
+
+
+                <div class="control-box flex column">
+                    <!-- <div class="text-input"> -->
+                    <div class="lines-edit flex column">
+                        <input class="text-input" name="textLine" type="text" placeholder="text to add" autocomplete="off"
+                            oninput="renderLineLiveText(this)">
+                        <div class="lines-btns">
+                            <button onclick="onFocusLine()">
+                                <img class="img-btn" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
+                            </button>
+                            <button class="pos-btn" onclick="moveTextRightLeft(5)" id="line-right">👉</button>
+                            <button class="pos-btn" onclick="moveTextRightLeft(-5)" class="line-left">👈</button>
+                            <button class="pos-btn" onclick="moveTextUpDown(-5)" class="line-up">👆</button>
+                            <button class="pos-btn" onclick="moveTextUpDown(5)" class="line-down">👇</button>
+                            <button onclick="onAddText()">
+                                <img class="img-btn" src="ICONS/add.png">
+                            </button>
+                            <button class="img-btn" onclick="onDeleteLine()">
+                                <img class="img-btn" src="ICONS/trash.png">
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <main class="images-container">
+        <div class="grid-container">
+            <img onclick="onImgClicked(1)" src="./img/memes-images/1.jpg">
+            <img onclick="onImgClicked(2)" src="./img/memes-images/2.jpg">
+            <img onclick="onImgClicked(3)" src="./img/memes-images/3.jpg">
+            <img onclick="onImgClicked(4)" src="./img/memes-images/4.jpg">
+            <img onclick="onImgClicked(5)" src="./img/memes-images/5.jpg">
+            <img onclick="onImgClicked(6)" src="./img/memes-images/6.jpg">
+            <img onclick="onImgClicked(7)" src="./img/memes-images/7.jpg">
+            <img onclick="onImgClicked(8)" src="./img/memes-images/8.jpg">
+            <img onclick="onImgClicked(9)" src="./img/memes-images/9.jpg">
+            <img onclick="onImgClicked(10)" src="./img/memes-images/10.jpg">
+            <img onclick="onImgClicked(11)" src="./img/memes-images/11.jpg">
+            <img onclick="onImgClicked(12)" src="./img/memes-images/12.jpg">
+            <img onclick="onImgClicked(13)" src="./img/memes-images/13.jpg">
+            <img onclick="onImgClicked(14)" src="./img/memes-images/14.jpg">
+            <img onclick="onImgClicked(15)" src="./img/memes-images/15.jpg">
+            <img onclick="onImgClicked(16)" src="./img/memes-images/16.jpg">
+        </div>
+    </main>
+
+    <script src="js/meme-controller.js"></script>
+    <script src="js/meme-service.js"></script>
+</body>
+
+</html>
