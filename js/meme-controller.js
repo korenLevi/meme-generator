@@ -240,6 +240,7 @@ function downloadMeme(elMeme) {
 }
 
 
+
 // var imageInput = document.querySelector('#image_input');
 // var uploadImage = '';
 
@@ -251,20 +252,17 @@ function downloadMeme(elMeme) {
 //         // console.log(uploadImage.url);
 //     })
 
-    // reader.addEventListener('load', () => {
-    //    
-    // })
-
-    // reader.readAsDataURL(this.files[0]);
-    // gImgs.push({
-    //     id: gImgs.length + 1,
-    //     url: el.value,
-    //     keywords: ['.']
-    // })
-    // onImgClicked(gImgs[gImgs.length - 1].id)
-    // var url = reader.readAsDataURL(this.files[0]);
-    // console.log(reader.readAsDataURL(this.files[0]));
+// reader.addEventListener('load', () => {
+//    
 // })
 
-
-
+// reader.readAsDataURL(this.files[0]);
+// gImgs.push({
+//     id: gImgs.length + 1,
+//     url: el.value,
+//     keywords: ['.']
+// })
+// onImgClicked(gImgs[gImgs.length - 1].id)
+// var url = reader.readAsDataURL(this.files[0]);
+// console.log(reader.readAsDataURL(this.files[0]));
+// })

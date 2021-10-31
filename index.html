@@ -30,17 +30,17 @@
                     <div class="lines-btns">
                         <input class="text-input" name="textLine" type="text" placeholder="text to add"
                             autocomplete="off" oninput="renderLineLiveText(this)">
-                        <button class="switch" onclick="onFocusLine()">
+                        <button class="switch buttons-control-box" onclick="onFocusLine()">
                             <img class="img-btn" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
                         </button>
-                        <button class="pos-btn right" onclick="moveTextRightLeft(5)" id="line-right">👉</button>
-                        <button class="pos-btn left" onclick="moveTextRightLeft(-5)" class="line-left">👈</button>
-                        <button class="pos-btn up" onclick="moveTextUpDown(-5)" class="line-up">👆</button>
-                        <button class="pos-btn down" onclick="moveTextUpDown(5)" class="line-down">👇</button>
-                        <button class="addText" onclick="onAddText()">
+                        <button class="pos-btn right buttons-control-box" onclick="moveTextRightLeft(5)" id="line-right">👉</button>
+                        <button class="pos-btn left buttons-control-box" onclick="moveTextRightLeft(-5)" class="line-left">👈</button>
+                        <button class="pos-btn up buttons-control-box" onclick="moveTextUpDown(-5)" class="line-up">👆</button>
+                        <button class="pos-btn down buttons-control-box" onclick="moveTextUpDown(5)" class="line-down">👇</button>
+                        <button class="addText buttons-control-box" onclick="onAddText()">
                             <img class="img-btn" src="ICONS/add.png">
                         </button>
-                        <button class="img-btn trash" onclick="onDeleteLine()">
+                        <button class="trash buttons-control-box" onclick="onDeleteLine()">
                             <img class="img-btn" src="ICONS/trash.png">
                         </button>
                     </div>
@@ -48,10 +48,10 @@
 
 
                     <div class="lines-edit">
-                        <button onclick="onChangeFontSize(1)" class="font-increase">
+                        <button onclick="onChangeFontSize(1)" class="font-increase buttons-control-box">
                             <img class="img-btn" src="ICONS/increase font - icon.png"></button>
                         <span class="font-size flex"></span>
-                        <button onclick="onChangeFontSize(-1)" class="font-decrease">
+                        <button onclick="onChangeFontSize(-1)" class="font-decrease buttons-control-box">
                             <img class="img-btn" src="ICONS/decrease font - icon.png">
                         </button>
                         <!-- <button onclick="onAlignLeft()">
@@ -68,7 +68,8 @@
 
 
                     <div class="socials-btns">
-                        <a id="download" class="pos-btn downloadBtn" download="myMeme.jpg" href=""onclick="downloadMeme(this)">Download</a>
+                        <a id="download" class="pos-btn downloadBtn" download="myMeme.jpg" href=""
+                            onclick="downloadMeme(this)">Download</a>
                         <!-- <input type="file" class="image_input" accept="image/png, image/jpg"> -->
                     </div>
 

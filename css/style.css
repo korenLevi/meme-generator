@@ -135,7 +135,7 @@ body {
     position: relative;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 7.5% 35% 35% 15% 7.5%;
+    grid-template-rows: 5% 45% 30% 15% 5%;
     border: 2px solid black;
     /* display: flex; */
     /* flex-direction: row; */
@@ -153,9 +153,11 @@ body {
     margin-top: 30px;
     margin-bottom: auto; */
     grid-row: 3/4;
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
     align-items: center;
+    justify-items: center;
 }
 
 .text-edit-btns {
@@ -172,12 +174,30 @@ body {
     width: 50px;
 }
 
-.control-box button {
-    width: 30px;
-    height: 35px;
-    border: 0px solid rgb(131, 131, 131);
-    background-color: #ffffff;
+.control-box{
+    width: 100%;
+    height: 100%;
+    /* border: 0px solid rgb(131, 131, 131); */
+    /* background-color: #ffffff; */
     border-radius: 5px;
+    /* cursor: pointer; */
+}
+
+
+
+.buttons-control-box {
+    height: 80%;
+    width: 50%;
+    max-width: 50px;
+    max-height: 50px;
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+button{
     cursor: pointer;
 }
 
@@ -207,8 +227,12 @@ body {
 } */
 
 .img-btn {
+    /* height: 80%;
+    width: 80%; */
     height: 30px;
     width: 30px;
+    max-height: fit-content;
+    max-width: fit-content;
     display: flex;
     text-align: center;
     justify-content: space-evenly;
@@ -227,9 +251,22 @@ input[name="textLine"] {
 
 .pos-btn {
     /* font-size: 30px; */
-    font-size: 20px;
+    font-size: 120%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.font-decrease{
+    grid-row: 1/-1;
+    grid-column: 2/3;
+}
+
+.font-increase{
+    grid-row: 1/-1;
+    grid-column: 3/4;
 }
 
 .socials-btns {
@@ -294,34 +331,73 @@ input[name="textLine"] {
         padding-bottom: 20px;
         padding-top: 20px;
         margin: 0 auto;
-        width: 90%;
+        /* width: 90%; */
         /* margin-bottom: auto; */
-        /* height: 60%; */
-        /* width: 70%; */
+        height: 60%; 
+        width: 70%;
     }
-    .control-box button {
+    /* .control-box button {
         width: 25px;
         height: 25px;
         border: 0px solid rgb(131, 131, 131);
         background-color: #ffffff;
         border-radius: 5px;
+    } */
+
+    .buttons-control-box {
+        height: 80%;
+        width: 50%;
+        max-width: 50px;
+        max-height: 50px;
+        display: flex;
+        background-color: transparent;
+        align-items: center;
+        justify-content: space-evenly;
+        
     }
     .pos-btn {
         font-size: 20px;
     }
-    .img-btn {
+
+    /* .img-btn {
         height: 25px;
         width: 25px;
+    } */
+    .img-btn {
+        /* height: 80%;
+        width: 80%; */
+        height: 25px;
+        width: 25px;
+        max-height: fit-content;
+        max-width: fit-content;
+        display: flex;
+        text-align: center;
+        justify-content: space-evenly;
     }
 }
-
+@media screen and (max-width: 750px) {
+    .img-btn {
+        /* height: 80%;
+        width: 80%; */
+        height: 20px;
+        width: 20px;
+        max-height: fit-content;
+        max-width: fit-content;
+        display: flex;
+        text-align: center;
+        justify-content: space-evenly;
+    }
+    .pos-btn {
+        font-size: 18px;
+    }
+}
 /* mobile */
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:550px) {
     .images-container {
         position: relative;
         display: grid;
-        background-color: #e3e3e3;
+        /* background-color: #e3e3e3; */
         padding: 50px;
         height: 70vh;
         /* width: 150vw; */
@@ -343,7 +419,7 @@ input[name="textLine"] {
     .meme-edit {
         position: relative;
         /* display: none; */
-        background-color: cornsilk;
+        /* background-color: cornsilk; */
         justify-content: space-between;
         gap: 15px;
         padding-bottom: 20px;
@@ -352,6 +428,16 @@ input[name="textLine"] {
         /* margin-bottom: auto; */
         height: auto;
         width: 100%;
+    }
+    .meme-edit {
+        position: relative;
+        justify-content: space-between;
+        gap: 15px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin: 0 auto;
+        height: 60%; 
+        width: 70%;
     }
     .canvas-container {
         display: grid;
@@ -381,7 +467,6 @@ input[name="textLine"] {
     }
     .meme-logo {
         display: flex;
-        /* object-fit: contain; */
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -390,34 +475,16 @@ input[name="textLine"] {
         display: flex;
         height: 60%;
         width: 100px;
-        /* max-width: 1px; */
-        /* float: right; */
         justify-content: center;
-        /* margin-left: 5%; */
-        /* align-items: center; */
     }
-    .control-box button {
-        width: 35px;
-        height: 35px;
-        
-        border: 0px solid rgb(131, 131, 131);
-        background-color: #ffffff;
-        border-radius: 5px;
-        /* text-align: center;
-        justify-content: center;
-        align-self: center;
-        align-content: center; */
-    }
+  
     .control-box {
         grid-template-columns: auto;
         grid-template-rows: 2.5% 52.5% 25% 20%;
     }
+    
     .pos-btn {
-        font-size: 20px;
-        text-align: center;
-        justify-content: center;
-        align-self: center;
-        align-content: center;
+        font-size: 15px;
     }
     .img-btn {
         height: 20px;

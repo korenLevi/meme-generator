@@ -146,7 +146,7 @@ var gMemesArr = [];
 
 function selectImg(imgId) {
     console.log(imgId);
-    if(gMeme.selectedImgId === -1){
+    if (gMeme.selectedImgId === -1) {
         gMeme.selectedImgId = imgId;
     }
     setMemesArr(imgId)
@@ -202,9 +202,9 @@ function isLineEditOn(bool) {
 }
 
 function setLineIdx() {
-    if(!gMeme.lines[gMeme.selectedLineIdx]) gMeme.selectedLineIdx = 0;
-    
-    if(gLinesPos.length - 1 === gMeme.selectedLineIdx) {
+    if (!gMeme.lines[gMeme.selectedLineIdx]) gMeme.selectedLineIdx = 0;
+
+    if (gLinesPos.length - 1 === gMeme.selectedLineIdx) {
         gMeme.selectedLineIdx = -1;
     }
 }
@@ -212,17 +212,17 @@ function setLineIdx() {
 function setMemesArr(imgId) {
 
     var meme = gMemesArr.find(id => {
-       return id.selectedImgId === imgId;
+        return id.selectedImgId === imgId;
     })
-    
-    if(meme){
+
+    if (meme) {
         gMeme = meme;
-        
+
 
         gMeme.lines = [];
         gMeme.linePosIdx = 0;
         return;
-    } 
+    }
     console.log('not in array');
     gMemesArr.push({
         selectedImgId: imgId,
@@ -236,20 +236,20 @@ function setMemesArr(imgId) {
         isLineDeleted: false,
         isMeming: false
     })
-    gMeme = gMemesArr[gMemesArr.length -1];
+    gMeme = gMemesArr[gMemesArr.length - 1];
 
 }
 
 function setNewPosLineX(val) {
-    var currLineIdx = gMeme.selectedLineIdx ;
-    console.log('currLineIdx',currLineIdx);
+    var currLineIdx = gMeme.selectedLineIdx;
+    console.log('currLineIdx', currLineIdx);
 
-    console.log('gMeme.lines[currLineIdx].pos.x',gMeme.lines[currLineIdx].pos.x);
+    console.log('gMeme.lines[currLineIdx].pos.x', gMeme.lines[currLineIdx].pos.x);
     gMeme.lines[currLineIdx].pos.x += val;
-    console.log('gMeme.lines[currLineIdx].pos.x',gMeme.lines[currLineIdx].pos.x);
+    console.log('gMeme.lines[currLineIdx].pos.x', gMeme.lines[currLineIdx].pos.x);
 }
+
 function setNewPosLineY(val) {
     var currLineIdx = gMeme.selectedLineIdx;
     gMeme.lines[currLineIdx].pos.y += val;
 }
-
