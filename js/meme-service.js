@@ -93,6 +93,8 @@ var gImgs = [{
     },
 ];
 
+
+
 var gLinesPos = [{
         x: 225,
         y: 50
@@ -107,15 +109,15 @@ var gLinesPos = [{
     },
     {
         x: 225,
-        y: 215
+        y: 100
     },
     {
         x: 225,
-        y: 235
+        y: 400
     },
     {
         x: 225,
-        y: 205
+        y: 200
     },
     {
         x: 225,
@@ -127,7 +129,7 @@ var gLinesPos = [{
     },
 ]
 
-
+const gColor = 'white'
 var gMeme = {
     selectedImgId: -1,
     // selectedLineIdx: 0,
@@ -192,7 +194,7 @@ function createLine(text, align = "right", fillColor = "white", strokeColor = "b
         strokeColor,
         pos: gLinesPos[linePosIdx]
     }
-
+    newLine.fillColor = gColor;
     gMeme.lines.push(newLine);
     gMeme.linePosIdx++;
 }
@@ -252,4 +254,46 @@ function setNewPosLineX(val) {
 function setNewPosLineY(val) {
     var currLineIdx = gMeme.selectedLineIdx;
     gMeme.lines[currLineIdx].pos.y += val;
+}
+
+function findLine(pos) {
+    const y = pos.y;
+    let currY = gLinesPos[0].y - y;
+    console.log(currY);
+    var map = gMeme.lines.findIndex(line => {
+        if (currY > line.pos.y - y) currY = line.pos.y
+        // console.log(currY);
+        // console.log(line.pos.y);
+        // console.log(line.pos.y - y);
+        // return (currY > line.pos.y - y) currY = line.pos.y
+        // return currY;
+        // currY = line.pos.y
+    })
+    console.log(currY);
+
+}
+
+
+function setLinesPos(el) {
+    // var gLinesPos = [];
+    var elContainer = document.getElementById('meme-canvas');
+    console.log(elContainer.width);
+    console.log(elContainer);
+    console.log('elContainer.offsetHeight', elContainer.width);
+    console.log('elContainer.offsetWidth', elContainer.height);
+    elContainer.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
+    // gElCanvas.width = elContainer.width
+    // gElCanvas.height = elContainer.height
+    gLinesPos = []
+    // console.log(el.height);
+    // console.log(el.width);
+    for (let i = 1; i < 4; i++) {
+        gLinesPos.push({
+            x: el.width / 2,
+            y: (i * 50)
+        })
+    }
+    console.log('gLinesPos', gLinesPos);
+
 }

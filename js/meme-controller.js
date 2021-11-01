@@ -10,7 +10,10 @@ const gElLineInput = document.querySelector('input[name=textLine]');
 function init() {
     // gElCanvas = document.querySelector('#meme-canvas');
     gElCanvas = document.getElementById('meme-canvas')
+   
     gCtx = gElCanvas.getContext('2d');
+
+    
 }
 
 
@@ -21,7 +24,13 @@ function onImgClicked(imgId) {
     selectImg(imgId);
     var elMemeEdit = document.querySelector('.meme-edit');
     elMemeEdit.style.display = 'flex';
+    gElLineInput.value = ''
     renderCanvas();
+    // var elContainer = document.querySelector('.canvas-size');
+    // console.log(elContainer.width);
+    // gElCanvas.width = elContainer.width
+    // gElCanvas.height = elContainer.offsetHeight
+    // setLinesPos(gElCanvas)
 }
 
 function renderCanvas() {
@@ -39,8 +48,8 @@ function renderCanvas() {
 
 
 function renderLineLiveText(elText) {
-
-
+    // console.log('gElCanvas',gElCanvas.height , gElCanvas.width);
+// gLinesPos[0].x = gElCanvas.width / 2;
     if (elText.value.length === 1 && !gMeme.isLineEditOn) {
         createLine(elText.value);
         isLineEditOn(true);
@@ -55,7 +64,7 @@ function renderLineLiveText(elText) {
     gMeme.lines[gMeme.lines.length - 1].txt = elText.value;
     setTimeout(() => {
         for (var i = 0; i < gMeme.lines.length; i++) {
-            console.log(gMeme.lines[i]);
+            // console.log(gMeme.lines[i]);
             drawLineTxt(gMeme.lines[i]);
         }
     }, 50)
@@ -68,8 +77,11 @@ function drawLineTxt(line) {
     gCtx.fillStyle = `${line.fillColor}`
     gCtx.font = `${line.size}px Impact`
     gCtx.textAlign = line.textAlign;
+    console.log(line.txt, line.pos.x, line.pos.y);
     gCtx.strokeText(line.txt, line.pos.x, line.pos.y);
     gCtx.fillText(line.txt, line.pos.x, line.pos.y);
+    // console.log(line.pos.x, line.pos.y);
+    // console.log(gCtx);
 }
 
 function onFocusLine() {
@@ -239,30 +251,53 @@ function downloadMeme(elMeme) {
     elMeme.href = image;
 }
 
+function setColor(color){
+    if(gMeme.selectedLineIdx === -1){
+        gMeme.color = color;
+        return;
+    }
+    console.log(color);
+    // gMeme.lines[gMeme.selectedLineIdx].strokeColor = color;
+    gMeme.lines[gMeme.selectedLineIdx].fillColor = color;
+    renderCanvas();
+    setTimeout(() => {
+        for (var i = 0; i < gMeme.lines.length; i++) {
+            drawLineTxt(gMeme.lines[i]);
+
+        }
+    })
+    // reRenderFocusedLineRect(currLineIdx)
+    setTimeout(renderFocusedLineRect, 50)
+
+}
 
 
-// var imageInput = document.querySelector('#image_input');
-// var uploadImage = '';
+function selectedText(event) {
+    // event.stopPropagation()
+    console.log(event);
 
-// imageInput.addEventListener("change", function () {
-//     var reader = new FileReader();
-//     reader.addEventListener("load", () => {
-//         uploadImage = reader.result;
-//         reader.readAsDataURL(this.files[0]);
-//         // console.log(uploadImage.url);
-//     })
+    var x = getEventPos(event);
+    console.log(x);
+    findLine(x)
+//
+    // var textWidth = gCtx.measureText(gMeme.lines.txt).width;
+    // x.x +=textWidth;
+    console.log(x);
+    // gElCanvas.addEventListener('mousedown', selectText);
+    // gElCanvas.addEventListener('mousemove', onMove);
+    // gElCanvas.addEventListener('mouseup', textDrop);
 
-// reader.addEventListener('load', () => {
-//    
-// })
+}
 
-// reader.readAsDataURL(this.files[0]);
-// gImgs.push({
-//     id: gImgs.length + 1,
-//     url: el.value,
-//     keywords: ['.']
-// })
-// onImgClicked(gImgs[gImgs.length - 1].id)
-// var url = reader.readAsDataURL(this.files[0]);
-// console.log(reader.readAsDataURL(this.files[0]));
-// })
+//x: 225,
+// y: 50
+
+function getEventPos(ev) {
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+
+    return pos;
+}
+

@@ -5,7 +5,7 @@
 
 html {
     font-family: Montserrat-Regular;
-    width: 100%;
+    /* width: 100%; */
 }
 
 body {
@@ -95,7 +95,7 @@ body {
     padding-top: 20px;
     margin: 0 auto;
     /* margin-bottom: auto; */
-    height: 60%;
+    height: 70%;
     width: 70%;
     /* flex-direction: column; */
 }

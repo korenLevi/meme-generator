@@ -19,8 +19,8 @@
     </header>
     <div class="meme-edit">
         <div class="canvas-container grid-canvas">
-            <canvas id="meme-canvas">
-            </canvas>
+                <canvas height="500px" width="500px" id="meme-canvas" onclick="selectedText(event)">
+                </canvas>
             <div class="grid2">
 
                 <!-- flex column -->
@@ -33,10 +33,14 @@
                         <button class="switch buttons-control-box" onclick="onFocusLine()">
                             <img class="img-btn" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
                         </button>
-                        <button class="pos-btn right buttons-control-box" onclick="moveTextRightLeft(5)" id="line-right">👉</button>
-                        <button class="pos-btn left buttons-control-box" onclick="moveTextRightLeft(-5)" class="line-left">👈</button>
-                        <button class="pos-btn up buttons-control-box" onclick="moveTextUpDown(-5)" class="line-up">👆</button>
-                        <button class="pos-btn down buttons-control-box" onclick="moveTextUpDown(5)" class="line-down">👇</button>
+                        <button class="pos-btn right buttons-control-box" onclick="moveTextRightLeft(5)"
+                            id="line-right">👉</button>
+                        <button class="pos-btn left buttons-control-box" onclick="moveTextRightLeft(-5)"
+                            class="line-left">👈</button>
+                        <button class="pos-btn up buttons-control-box" onclick="moveTextUpDown(-5)"
+                            class="line-up">👆</button>
+                        <button class="pos-btn down buttons-control-box" onclick="moveTextUpDown(5)"
+                            class="line-down">👇</button>
                         <button class="addText buttons-control-box" onclick="onAddText()">
                             <img class="img-btn" src="ICONS/add.png">
                         </button>
@@ -54,6 +58,7 @@
                         <button onclick="onChangeFontSize(-1)" class="font-decrease buttons-control-box">
                             <img class="img-btn" src="ICONS/decrease font - icon.png">
                         </button>
+                        <input type="color" class="color-input" onchange="setColor(this.value)" value="#ffffff">
                         <!-- <button onclick="onAlignLeft()">
                                 <img class="img-btn" src="ICONS/align-to-left.png">
                             </button>
