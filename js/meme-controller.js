@@ -197,7 +197,7 @@ function moveLineTxt() {
 }
 
 function moveTextRightLeft(val) {
-    if (!gMeme.isFocusedLineOn) return;
+    // if (!gMeme.isFocusedLineOn) return;
     setNewPosLineX(val);
     renderCanvas();
 
